@@ -1,6 +1,6 @@
 # Grade-calculator
 Мой скрипт может вывести все оценки в одной таблице и сможет посчитать средний балл для сайта https://schools.by/
-
+***
 My script can display all the scores in one table and will be able to calculate the average score for the site https://schools.by/
 
 Установка/Installation:
