@@ -34,5 +34,6 @@ My script can display all the scores in one table and will be able to calculate 
    Эти два файла должны находиться в одной папке.
    
    Поместите в файл "html.txt" скопированный вами код.
+   ВНИМАНИЕ: Сохранайте файл в формате ANSI
    
    Запускайте скрипт
