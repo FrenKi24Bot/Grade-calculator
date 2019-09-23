@@ -6,15 +6,10 @@
 Установка/Installation:
 =====================
 1. * Установите Python версии 3.x
-   * Install Python version 3.x
-
    * https://www.python.org/
 
 2. * Установите библиотеку "**BeautifulSoup4**"
    * Команда для установки: **pip3 install BeautifulSoup4**
-   
-   * Install the "**BeautifulSoup4**" library
-   * Installation command: **pip3 install BeautifulSoup4**
 
 3. * Зайдите в ваш дневник на сайте https://schools.by/
    * Пролистайте все страницы с оценками.
