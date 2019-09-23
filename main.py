@@ -3,7 +3,8 @@ from bs4 import  BeautifulSoup
 import datetime
 
 
-txt=open(r'html.txt','r')
+html=open(r'html.txt','r')
+
 lessons=[ # constuction: 'name of lesson',[marks],[average score]
     ['Астрономия',[],[]],
     ['Бел.лит.',[],[]],
@@ -25,9 +26,6 @@ lessons=[ # constuction: 'name of lesson',[marks],[average score]
     ['ЧЗС',[],[]]
 ]
 
-
-
-b=0
 quarter=[  #даты начала четвертей
     datetime.date(2019,9,2),
     datetime.date(2019,11,11),
@@ -42,8 +40,7 @@ def define_quarter():
     return n
 
 def main():
-    soup=BeautifulSoup(txt,'html.parser') # connect bs4
-
+    soup=BeautifulSoup(html,'html.parser') # connect bs4
     trs=soup.findAll('tr') # find all 'tr'
     for tr in trs:    
         try:
@@ -51,7 +48,6 @@ def main():
             lesson=lesson.replace(lesson[0] + lesson[1],'')
             
             mark=tr.find('strong').text # take a mark
-
 
             soup1=BeautifulSoup(str(tr.parent.parent),'html.parser') # connect another bs4 for find a date
 
@@ -64,14 +60,12 @@ def main():
                     # is okay
                     for i in range(len(lessons)):
                         if lessons[i][0]==lesson:
-                            #print(mark)
                             lessons[i][1]+=mark # add mark in array with lessons
                 else:
                     pass
-
             except Exception as err:
                 print(err)
-      
+                
         except:
             pass 
 
@@ -90,12 +84,13 @@ def calculation():
             lessons[i][2]=round((n/len(lessons[i][1])), 3) # calc a averange score
         except:
             pass    
-        n=0
+        
 
 def show():
     for i in range(len(lessons)):
         print(str(lessons[i][0])+(12-len(lessons[i][0]))*' ',str(lessons[i][1]),' ',str(lessons[i][2]))
+
+
 main()
-#print(lessons[4][1][2])
 calculation()
 show()
