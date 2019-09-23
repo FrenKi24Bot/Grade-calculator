@@ -25,7 +25,7 @@ My script can display all the scores in one table and will be able to calculate 
    Пролистайте все страницы с оценками.
    
    Скопируйте HTML код ( Откройте панель с кодом, сочетание клавиш "CTRL+SHIFT+I". Выбирете самый верний "html" и нажмите скопировать        элемент )
-   ![Вот пример](https://vk.com/photo218074697_457241761)
+   ![Вот пример](https://sun9-10.userapi.com/c855232/v855232412/f7984/_2Ba_wSloqg.jpg)
 
 4. Скачайте сам скрипт и текстовый докумет.
 
