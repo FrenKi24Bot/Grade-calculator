@@ -60,12 +60,15 @@ def main():
                     # is okay
                     for i in range(len(lessons)):
                         if lessons[i][0]==lesson:
-                            lessons[i][1]+=mark # add mark in array with lessons
+                            if mark=='10':
+                                lessons[i][1].append(mark) # if mark==10 добавляем её в одну клетку
+                            else:    
+                                lessons[i][1]+=mark # add mark in array with lessons
                 else:
                     pass
             except Exception as err:
                 print(err)
-                
+
         except:
             pass 
 
