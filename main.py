@@ -7,24 +7,8 @@ html=open(r'html.txt','r')
 
 
 lessons=[ # constuction: 'name of lesson',[marks],[average score]
-    ['Астрономия',[],[],[]],
-    ['Бел.лит.',[],[],[]],
-    ['Бел.яз.',[],[],[]],
-    ['Биология',[],[],[]],
-    ['Всемир.ист.',[],[],[]],
-    ['География',[],[],[]],
-    ['ДП/МП',[],[],[]],
-    ['Информ.',[],[],[]],
-    ['Ист.Бел.',[],[],[]],
-    ['Матем.',[],[],[]],
-    ['Нем.яз.',[],[],[]],
-    ['Обществов.',[],[],[]],
-    ['Рус.лит.',[],[],[]],
-    ['Рус.яз.',[],[],[]],
-    ['Физика',[],[],[]],
-    ['Физ.к.изд.',[],[],[]],
-    ['Химия',[],[],[]],
-    ['ЧЗС',[],[],[]]
+    ['',[],[],[]],
+    
 ]
 
 
@@ -62,14 +46,14 @@ def main():
                 num=define_quarter() # take a num of a quarter
                 if(date.strftime("%Y%m%d")  > quarter[num].strftime("%Y%m%d")): # сравниваем(проверяем) то, чтобы была выбрана верная четветь
                     # is okay
-                    for i in range(len(lessons)):
-                        if lessons[i][0]==lesson:
-                            try:
-                                if not(mark==''):
-                                    lessons[i][1].append(mark)
-                                    lessons[i][3].append(date)
-                            except:    
-                                lessons[i][1]+=mark # add mark in array with lessons
+                    for i in range(len(lessons)): 
+                        if (lessons[i][0]==lesson) and not(mark==''): # ищем нужный предмет
+                            lessons[i][1].append(mark)
+                            lessons[i][3].append(date) # добавляем инфу
+                            break
+                        elif(i==len(lessons)-1) and not(mark==''): # создаём если его нету
+                            lessons.append([lesson,[mark],[],[date]])  
+                            break          
                 else:
                     pass
             except Exception as err:
@@ -113,7 +97,8 @@ def calculation():
 
 
 def show():
-    for i in range(len(lessons)):
+    lessons.sort()
+    for i in range(1,len(lessons)):
         lessons[i][1].sort(key=dict(zip(lessons[i][1], lessons[i][3])).get) # сортировка оценок по датам
         print(str(lessons[i][0])+(12-len(lessons[i][0]))*' ',str(lessons[i][1]),' ',str(lessons[i][2]))
 
