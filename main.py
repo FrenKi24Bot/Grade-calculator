@@ -96,13 +96,24 @@ def calculation():
             pass   
 
 
+def sort():
+    for i in range(1,len(lessons)):
+        for j in range(len(lessons[i][3])):
+            for k in range(len(lessons[i][3])):
+                if(lessons[i][3][j]<lessons[i][3][k]):
+                    lessons[i][3][j],lessons[i][3][k]=lessons[i][3][k],lessons[i][3][j]
+                    lessons[i][1][j],lessons[i][1][k]=lessons[i][1][k],lessons[i][1][j]
+
+
 def show():
     lessons.sort()
+    print('№ |','Предмет','    |Ср.Балл|','Оценки')
+    print()
     for i in range(1,len(lessons)):
-        lessons[i][1].sort(key=dict(zip(lessons[i][1], lessons[i][3])).get) # сортировка оценок по датам
-        print(str(lessons[i][0])+(12-len(lessons[i][0]))*' ',str(lessons[i][1]),' ',str(lessons[i][2]))
+        print(i,'|',str(lessons[i][0])+(12 -len(lessons[i][0]))*' '+'|',str(lessons[i][2])+(6-len(str(lessons[i][2])))*' '+str(lessons[i][1]).replace("'",'').replace("[",'| ').replace("]",''))
 
 
 main()
 calculation()
+sort()
 show()
