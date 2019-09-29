@@ -107,10 +107,10 @@ def sort():
 
 def show():
     lessons.sort()
-    print('№ |','Предмет','    |Ср.Балл|','Оценки')
+    print(' №  |','Предмет','    |Ср.Балл|','Оценки')
     print()
     for i in range(1,len(lessons)):
-        print(i,'|',str(lessons[i][0])+(12 -len(lessons[i][0]))*' '+'|',str(lessons[i][2])+(6-len(str(lessons[i][2])))*' '+str(lessons[i][1]).replace("'",'').replace("[",'| ').replace("]",''))
+        print(' '+str(i)+(3-len(str(i)))*' '+'|',str(lessons[i][0])+(12 -len(lessons[i][0]))*' '+'|',str(lessons[i][2])+(6-len(str(lessons[i][2])))*' '+str(lessons[i][1]).replace("'",'').replace("[",'| ').replace("]",''))
 
 
 main()
